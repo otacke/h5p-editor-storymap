@@ -1,0 +1,31 @@
+.h5p-editor-storymap-sidebar {
+  --number-of-elements: 1;
+
+  background-color: var(--color-background);
+  height: var(--boardMaxHeight);
+
+  &.display-none {
+    display: none;
+  }
+
+  .subcomponent-header {
+    display: grid;
+    grid-template-columns: repeat(var(--number-of-elements), 1fr);
+    padding: 0.25rem;
+
+    .subcomponent-header-text {
+      background-color: var(--color-primary);
+      border: 2px solid var(--color-text-light);
+      border-radius: 3px;
+      box-sizing: border-box;
+      color: var(--color-text-light);
+      font-size: var(--font-size-small);
+      font-weight: bold;
+      padding: 0.5rem;
+      text-align: left;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+  }
+}

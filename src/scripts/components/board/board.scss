@@ -1,0 +1,67 @@
+.h5p-editor-storymap-board {
+  grid-area: 1 / 1 / 1 / 1;
+  position: relative;
+
+  .h5p-editor-storymap-toolbar-main {
+    position: relative;
+
+    .h5p-editor-storymap-toolbar-content {
+      flex-grow: 1;
+    }
+
+    .h5p-editor-storymap-toolbar-action {
+      flex-grow: 1;
+      justify-content: flex-end;
+    }
+
+    .h5p-editor-storymap-toolbar-content .toolbar-button,
+    .h5p-editor-storymap-toolbar-action .toolbar-button {
+      &.toolbar-button-active {
+        color: var(--color-text-light);
+      }
+
+      &::before {
+        font-family: "H5PFontAwesome4", sans-serif;
+        font-size: var(--font-size-large);
+        font-weight: bold;
+        height: 1.15rem;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 1.15rem;
+      }
+
+      &.toolbar-button-waypoint::before {
+        content: var(--icon-fontawesome-location-pin);
+        font-weight: normal;
+      }
+
+      &.toolbar-button-mini-map::before {
+        content: var(--icon-fontawesome-compass);
+        font-weight: normal;
+      }
+
+      &.toolbar-button-list-view::before {
+        content: var(--icon-fontawesome-list);
+        font-weight: normal;
+      }
+
+      &.toolbar-button-preview::before {
+        content: var(--icon-fontawesome-tv);
+      }
+    }
+  }
+
+  .h5p-editor-storymap-board-main-area {
+    display: grid;
+    grid-template-columns: 1fr min(28ch, 30%); // A little arbitraty
+    column-gap: 0.5rem;
+    position: relative;
+    z-index: 0;
+  }
+
+  .h5p-editor-storymap-board-main-area:has(.h5p-editor-storymap-sidebar.display-none) {
+    grid-template-columns: 1fr;
+  }
+}

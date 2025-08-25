@@ -1,0 +1,25 @@
+.h5p-editor-storymap-waypoint-area-wrapper-inner {
+  box-sizing: border-box;
+  max-height: var(--boardMaxHeight);
+  position: relative;
+  z-index: 1;
+
+  .h5p-editor-storymap-waypoint-area {
+    --aspectRatio: 16 / 9;
+
+    aspect-ratio: var(--aspectRatio);
+    background-color: hsl(0, 0%, 100%);
+    background-size: cover;
+    box-sizing: border-box;
+    display: block;
+    position: relative;
+  }
+
+  &.overflow-scroll {
+    overflow: scroll;
+  }
+
+  &.display-none {
+    display: none;
+  }
+}
