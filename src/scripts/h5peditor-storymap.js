@@ -5,6 +5,9 @@ import { getUberName } from '@services/h5p-util.js';
 import Util, { signalMouseUsage } from '@services/util.js';
 import '@styles/h5peditor-storymap.scss';
 
+// TODO: Add option to search for locations
+// TODO: Add option to set default zoom level for map
+
 /** Class for StoryMap H5P widget */
 export default class StoryMap extends H5P.EventDispatcher {
   /**
