@@ -170,6 +170,10 @@ export default class GeoMap {
     const marker = L.marker([params.latitude, params.longitude], { icon: MARKER_ICON, draggable: true });
     marker.addTo(this.map);
 
+    const markerDOM = marker.getElement();
+    markerDOM.setAttribute('aria-label', params.title);
+    H5P.Tooltip?.(markerDOM, { position: 'bottom' });
+
     const waypoint = new Waypoint(
       {
         globals: this.params.globals,
@@ -192,6 +196,10 @@ export default class GeoMap {
     );
 
     this.waypoints.push(waypoint);
+
+    markerDOM.addEventListener('focus', () => {
+      this.centerOnWaypoint(waypoint.getId());
+    });
 
     marker.on('drag', () => {
       this.connectMarkersWithPaths();
