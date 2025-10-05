@@ -1,4 +1,4 @@
-H5P Editor Storymap
+H5P Editor StoryMap
 ==========
 
 ## Getting started

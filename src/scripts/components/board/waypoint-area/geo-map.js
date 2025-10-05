@@ -10,7 +10,7 @@ import './geo-map.scss';
 /** @constant {object} MODES Map modes. */
 export const MODES = { VIEW: 0, ADD_PIN: 1 };
 
-/** constant {object} MARKER_ICON Marker icon.*/
+/** @constant {object} MARKER_ICON Marker icon.*/
 const MARKER_ICON = L.divIcon({
   html: MARKER_SVG,
   // eslint-disable-next-line

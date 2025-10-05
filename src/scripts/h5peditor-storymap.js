@@ -5,8 +5,8 @@ import { getUberName } from '@services/h5p-util.js';
 import Util, { signalMouseUsage } from '@services/util.js';
 import '@styles/h5peditor-storymap.scss';
 
-/** Class for Storymap H5P widget */
-export default class Storymap extends H5P.EventDispatcher {
+/** Class for StoryMap H5P widget */
+export default class StoryMap extends H5P.EventDispatcher {
   /**
    * @class
    * @param {object} parent Parent element in semantics.
@@ -80,7 +80,7 @@ export default class Storymap extends H5P.EventDispatcher {
    */
   fillDictionary() {
     // Convert H5PEditor language strings into object.
-    const plainTranslations = H5PEditor.language['H5PEditor.Storymap'].libraryStrings || {};
+    const plainTranslations = H5PEditor.language['H5PEditor.StoryMap'].libraryStrings || {};
     const translations = {};
 
     Object.entries(plainTranslations).forEach(([key, value]) => {
@@ -158,7 +158,7 @@ export default class Storymap extends H5P.EventDispatcher {
         },
         getPreviewParams: () => {
           return ({
-            a11y: this.parent.commonFields[getUberName('H5P.Storymap')].a11y.params,
+            a11y: this.parent.commonFields[getUberName('H5P.StoryMap')].a11y.params,
             editor: { waypoints: this.params.waypoints }
           });
         }

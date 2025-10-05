@@ -86,7 +86,7 @@ export default class Main {
    */
   createPreviewInstance() {
     const libraryUberName = Object.keys(H5PEditor.libraryLoaded)
-      .find((library) => library.split(' ')[0] === 'H5P.Storymap');
+      .find((library) => library.split(' ')[0] === 'H5P.StoryMap');
 
     const contentId = H5PEditor.contentId;
     this.previewInstance = H5P.newRunnable(

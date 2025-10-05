@@ -19,11 +19,11 @@
     border: none;
 
     &:hover {
-      --pin-color: hsl(from var(--pin-color-base) h s calc(l * 0.9));
+      --pin-color: hsl(from var(--pin-color-base) h s calc(l * 0.8));
     }
 
     &:focus {
-      --pin-color: hsl(from var(--pin-color-base) h s calc(l * 0.8));
+      --pin-color: hsl(from var(--pin-color-base) h s calc(l * 0.6));
     }
   }
 
@@ -75,8 +75,15 @@
       stroke: var(--path-color);
       opacity: 0.5;
       stroke-dasharray: var(--path-stroke-dash);
-      stroke-width: 0.5rem;
     }
+  }
+
+  :not(.leaflet-control-minimap) .leaflet-overlay-pane .leaflet-interactive {
+    stroke-width: 0.5rem;
+  }
+
+  .leaflet-control-minimap .leaflet-overlay-pane .leaflet-interactive {
+    stroke-width: initial;
   }
 
   &.add-pin-mode {

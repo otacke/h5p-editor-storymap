@@ -1,7 +1,7 @@
 {
   "name": "h5peditor-storymap",
   "version": "1.0.0",
-  "description": "Editor widget for H5P Storymap",
+  "description": "Editor widget for H5P StoryMap",
   "private": true,
   "scripts": {
     "lint": "stylelint './src/**/*.scss' && eslint './src/**/*.js'",
