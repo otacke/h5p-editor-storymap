@@ -27,6 +27,21 @@
     }
   }
 
+  .leaflet-control-geocoder.leaflet-control {
+    background-color: #fff;
+    border-color: var(--color-primary-50);
+
+    button {
+      &:hover {
+        background-color: var(--color-primary-10);
+      }
+
+      &:active {
+        background-color: var(--color-primary-25);
+      }
+    }
+  }
+
   .leaflet-control-zoom.leaflet-bar.leaflet-control {
     background-color: #fff;
     border-color: var(--color-primary-50);

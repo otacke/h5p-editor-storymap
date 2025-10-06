@@ -77,7 +77,6 @@ export default class Main {
 
     this.previewOverlay.show();
     this.previewOverlay.attachInstance(this.previewInstance);
-    this.previewInstance.invalidateMap();
 
     Readspeaker.read(this.params.dictionary.get('a11y.previewOpened'));
   }

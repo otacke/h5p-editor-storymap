@@ -1,11 +1,13 @@
 import L from 'leaflet';
 import MiniMap from 'leaflet-minimap';
+import 'leaflet-control-geocoder';
 import MARKER_SVG from '@assets/marker.svg?inline';
 import { isUsingMouse } from '@services/h5p-util.js';
 import Util from '@services/util.js';
 import Waypoint from '@models/waypoint.js';
 
 import 'leaflet/dist/leaflet.css';
+import 'leaflet-control-geocoder/dist/Control.Geocoder.css';
 import './geo-map.scss';
 
 /** @constant {object} MODES Map modes. */
@@ -103,6 +105,7 @@ export default class GeoMap {
 
     this.buildDOM();
     this.buildMap();
+    this.addSearchControl();
     this.rebuildWaypoints();
 
     if (this.waypoints.length > 0) {
@@ -130,6 +133,23 @@ export default class GeoMap {
 
     this.dom.append(this.map);
     this.overrideLeafletZoomButtons();
+  }
+
+  /**
+   * Add search control to the map.
+   */
+  addSearchControl() {
+    const geoCoder = L.Control.geocoder({
+      defaultMarkGeocode: false,
+      geocoder: L.Control.Geocoder.nominatim(),
+      queryMinLength: 1,
+    });
+
+    geoCoder.on('markgeocode', (event) => {
+      this.map.panTo(event.geocode.center);
+    });
+
+    geoCoder.addTo(this.map);
   }
 
   /**
