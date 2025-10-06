@@ -35,6 +35,7 @@ export default class WaypointArea {
         dictionary: this.params.dictionary,
         waypoints: this.params.waypoints,
         waypointFields: this.params.waypointFields,
+        zoomLevelDefault: this.params.zoomLevelDefault
       },
       {
         onWaypointAdded: (waypoint) => {
@@ -228,5 +229,13 @@ export default class WaypointArea {
   getSize() {
     const clientRect = this.waypointArea.getBoundingClientRect();
     return { height: clientRect.height, width: clientRect.width };
+  }
+
+  /**
+   * Get current zoom level of the map.
+   * @returns {number} Zoom level.
+   */
+  getZoomLevel() {
+    return this.geoMap.getZoomLevel();
   }
 }

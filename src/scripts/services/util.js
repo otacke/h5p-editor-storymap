@@ -1,11 +1,3 @@
-import { decode } from 'he';
-
-/** @constant {number} DOUBLE_CLICK_COUNT Double click count. */
-const DOUBLE_CLICK_COUNT = 2;
-
-/** @constant {number} DOUBLE_CLICK_TIME Double click time in ms. */
-const DOUBLE_CLICK_TIME = 300;
-
 /**
  * Signal mouse usage.
  * @param {HTMLElement} domElement DOM Element to signal mouse usage on.

@@ -10,7 +10,8 @@ export default class MixinWaypointArea {
         globals: this.params.globals,
         dictionary: this.params.dictionary,
         waypoints: this.params.waypoints,
-        waypointFields: this.params.waypointFields
+        waypointFields: this.params.waypointFields,
+        zoomLevelDefault: this.params.zoomLevelDefault
       },
       {
         onWaypointAdded: (waypoint) => {

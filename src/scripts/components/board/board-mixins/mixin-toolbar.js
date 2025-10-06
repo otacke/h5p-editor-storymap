@@ -34,6 +34,16 @@ export default class MixinToolbar {
 
     const toolbarButtonsActions = [
       {
+        id: 'set-zoom-level',
+        type: 'pulse',
+        a11y: {
+          active: this.params.dictionary.get('a11y.buttonSetZoomLevelActive'),
+        },
+        onClick: () => {
+          this.callbacks.onChanged({ zoomLevelDefault: this.waypointArea.getZoomLevel() });
+        }
+      },
+      {
         id: 'mini-map',
         type: 'toggle',
         a11y: {

@@ -23,7 +23,8 @@ export default class StoryMap extends H5P.EventDispatcher {
     this.parent = parent;
     this.field = field;
     this.params = Util.extend({
-      waypoints: []
+      waypoints: [],
+      zoomLevelDefault: 12,
     }, params);
     this.setValue = setValue;
 
@@ -153,7 +154,8 @@ export default class StoryMap extends H5P.EventDispatcher {
         dictionary: this.dictionary,
         globals: this.globals,
         waypoints: this.params.waypoints,
-        waypointFields: waypointFields
+        waypointFields: waypointFields,
+        zoomLevelDefault: this.params.zoomLevelDefault
       },
       {
         onChanged: (values) => {
@@ -162,7 +164,9 @@ export default class StoryMap extends H5P.EventDispatcher {
         getPreviewParams: () => {
           return ({
             a11y: this.parent.commonFields[getUberName('H5P.StoryMap')].a11y.params,
-            editor: { waypoints: this.params.waypoints }
+            editor: { waypoints: this.params.waypoints, zoomLevelDefault: this.params.zoomLevelDefault },
+            behaviour: this.parent.params.behaviour,
+            visual: this.parent.params.visual
           });
         }
       }

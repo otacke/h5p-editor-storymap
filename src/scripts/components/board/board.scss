@@ -37,6 +37,11 @@
         font-weight: normal;
       }
 
+      &.toolbar-button-set-zoom-level::before {
+        content: var(--icon-fontawesome-flag);
+        font-weight: normal;
+      }
+
       &.toolbar-button-mini-map::before {
         content: var(--icon-fontawesome-compass);
         font-weight: normal;

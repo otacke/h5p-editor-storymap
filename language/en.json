@@ -22,6 +22,7 @@
     "a11y.buttonWaypointActive": "Toggle waypoint mode off",
     "a11y.buttonWaypointInactive": "Toggle waypoint mode on",
     "a11y.toolbarLabelActions": "Actions",
+    "a11y.buttonSetZoomLevelActive": "Set starting zoom level",
     "a11y.buttonMiniMapActive": "Hide mini map",
     "a11y.buttonMiniMapInactive": "Show mini map",
     "a11y.buttonListViewActive": "Hide list view",

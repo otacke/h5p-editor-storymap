@@ -1,6 +1,7 @@
 import L from 'leaflet';
 import MiniMap from 'leaflet-minimap';
 import MARKER_SVG from '@assets/marker.svg?inline';
+import { isUsingMouse } from '@services/h5p-util.js';
 import Util from '@services/util.js';
 import Waypoint from '@models/waypoint.js';
 
@@ -121,7 +122,7 @@ export default class GeoMap {
    * Build the map.
    */
   buildMap() {
-    this.map = L.map(this.dom).setView(DEFAULT_COORDINATES, DEFAULT_ZOOM_LEVEL);
+    this.map = L.map(this.dom).setView(DEFAULT_COORDINATES, this.params.zoomLevelDefault ?? DEFAULT_ZOOM_LEVEL);
 
     this.map.on('click', (event) => {
       this.putWaypointOnMap(event);
@@ -197,8 +198,11 @@ export default class GeoMap {
 
     this.waypoints.push(waypoint);
 
-    markerDOM.addEventListener('focus', () => {
-      this.centerOnWaypoint(waypoint.getId());
+    markerDOM.addEventListener('focus', (event) => {
+      // Prevent map from panning when trying to double click with mouse
+      if (!isUsingMouse('.h5peditor-storymap', undefined)) {
+        this.centerOnWaypoint(waypoint.getId());
+      }
     });
 
     marker.on('drag', () => {
@@ -212,7 +216,8 @@ export default class GeoMap {
       }
     });
 
-    marker.on('dblclick', () => {
+    marker.on('dblclick', (event) => {
+      L.DomEvent.stopPropagation(event);
       this.callbacks.showFormDialog(waypoint, 'edit');
     });
 
@@ -460,5 +465,13 @@ export default class GeoMap {
       this.dom.style.setProperty('--path-color', 'var(--path-color-inactive)');
       this.dom.style.setProperty('--path-stroke-dash', 'var(--path-stroke-dash-inactive)');
     }
+  }
+
+  /**
+   * Get current zoom level of the map.
+   * @returns {number} Zoom level.
+   */
+  getZoomLevel() {
+    return this.map.getZoom();
   }
 }
