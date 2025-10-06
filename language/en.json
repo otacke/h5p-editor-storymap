@@ -30,8 +30,6 @@
     "a11y.buttonZoomIn": "Zoom in",
     "a11y.buttonZoomOut": "Zoom out",
     "a11y.buttonPreview": "Preview",
-    "a11y.openSubMenu": "Open submenu",
-    "a11y.closeSubMenu": "Close submenu",
     "a11y.previewOpened": "Preview was opened.",
     "a11y.previewClosed": "Preview was closed."
   }
