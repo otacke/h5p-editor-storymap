@@ -65,6 +65,31 @@
       "machineName": "H5P.Video",
       "majorVersion": 1,
       "minorVersion": 6
+    },
+    {
+      "machineName": "H5P.CoursePresentation",
+      "majorVersion": 1,
+      "minorVersion": 26
+    },
+    {
+      "machineName": "H5P.Dialogcards",
+      "majorVersion": 1,
+      "minorVersion": 9
+    },
+    {
+      "machineName": "H5P.ImageHotspots",
+      "majorVersion": 1,
+      "minorVersion": 10
+    },
+    {
+      "machineName": "H5P.ImageJuxtaposition",
+      "majorVersion": 1,
+      "minorVersion": 5
+    },
+    {
+      "machineName": "H5P.InteractiveVideo",
+      "majorVersion": 1,
+      "minorVersion": 27
     }
   ]
 }
