@@ -20,7 +20,7 @@ export default class ToolbarGroup {
     }, params);
 
     this.callbacks = Util.extend({
-      onKeydown: () => {}
+      onKeydown: () => {},
     }, callbacks);
 
     this.buttons = {};
@@ -75,7 +75,7 @@ export default class ToolbarGroup {
     }
     else if (event.code === 'End') {
       this.moveButtonFocus(
-        Object.keys(this.buttons).length - 1 - this.currentButtonIndex
+        Object.keys(this.buttons).length - 1 - this.currentButtonIndex,
       );
     }
     else {
@@ -124,22 +124,22 @@ export default class ToolbarGroup {
         ...(button.a11y && { a11y: button.a11y }),
         classes: ['toolbar-button', `toolbar-button-${button.id}`],
         ...(typeof button.disabled === 'boolean' && {
-          disabled: button.disabled
+          disabled: button.disabled,
         }),
         ...(button.keyshortcuts && { keyshortcuts: button.keyshortcuts }),
         ...(button.tooltip && { tooltip: button.tooltip }),
         ...(button.active && { active: button.active }),
         ...(button.type && { type: button.type }),
         ...(button.pulseStates && { pulseStates: button.pulseStates }),
-        ...(button.pulseIndex && { pulseIndex: button.pulseIndex })
+        ...(button.pulseIndex && { pulseIndex: button.pulseIndex }),
       },
       {
         ...(typeof button.onClick === 'function' && {
           onClick: (event, params) => {
             button.onClick(event, params);
-          }
-        })
-      }
+          },
+        }),
+      },
     );
 
     this.dom.append(this.buttons[button.id].getDOM());

@@ -19,7 +19,7 @@ export default class Dialog {
 
     this.callbacks = Util.extend({
       onDone: () => {},
-      onRemoved: () => {}
+      onRemoved: () => {},
     }, callbacks);
 
     this.headline = document.createElement('div');
@@ -75,7 +75,7 @@ export default class Dialog {
     this.focusTrap = new FocusTrap({
       trapElement: this.dom,
       closeElement: buttonRemove,
-      fallbackContainer: this.dom
+      fallbackContainer: this.dom,
     });
 
     this.hide();

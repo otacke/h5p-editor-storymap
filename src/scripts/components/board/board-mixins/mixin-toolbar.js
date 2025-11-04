@@ -19,7 +19,7 @@ export default class MixinToolbar {
         },
         onClick: () => {
           this.toggleMapMode();
-        }
+        },
       },
     ];
 
@@ -27,9 +27,9 @@ export default class MixinToolbar {
       buttons: toolbarButtonsContents,
       className: 'h5p-editor-storymap-toolbar-content',
       a11y: {
-        toolbarLabel: this.params.dictionary.get('a11y.toolbarLabelWaypoints')
+        toolbarLabel: this.params.dictionary.get('a11y.toolbarLabelWaypoints'),
       },
-      ariaControlsId: this.waypointArea.getId()
+      ariaControlsId: this.waypointArea.getId(),
     }, {});
 
     const toolbarButtonsActions = [
@@ -41,7 +41,7 @@ export default class MixinToolbar {
         },
         onClick: () => {
           this.callbacks.onChanged({ zoomLevelDefault: this.waypointArea.getZoomLevel() });
-        }
+        },
       },
       {
         id: 'mini-map',
@@ -52,7 +52,7 @@ export default class MixinToolbar {
         },
         onClick: () => {
           this.toggleMiniMapVisibility();
-        }
+        },
       },
       {
         id: 'list-view',
@@ -63,7 +63,7 @@ export default class MixinToolbar {
         },
         onClick: () => {
           this.toggleSidebar();
-        }
+        },
       },
       {
         id: 'preview',
@@ -73,24 +73,24 @@ export default class MixinToolbar {
         },
         onClick: () => {
           this.callbacks.togglePreview();
-        }
-      }
+        },
+      },
     ];
 
     this.actionButtons = new ToolbarGroup({
       buttons: toolbarButtonsActions,
       className: 'h5p-editor-storymap-toolbar-action',
       a11y: {
-        toolbarLabel: this.params.dictionary.get('a11y.toolbarLabelActions')
+        toolbarLabel: this.params.dictionary.get('a11y.toolbarLabelActions'),
       },
-      ariaControlsId: this.waypointArea.getId()
+      ariaControlsId: this.waypointArea.getId(),
     }, {});
 
     this.toolbar = new ToolbarMain(
       {
         contentButtonsDOM: this.contentsButtons.getDOM(),
-        actionButtonsDOM: this.actionButtons.getDOM()
-      }
+        actionButtonsDOM: this.actionButtons.getDOM(),
+      },
     );
   }
 }

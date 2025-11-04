@@ -11,7 +11,7 @@ export default class MixinSidebar {
       {
         dictionary: this.params.dictionary,
         title: this.params.dictionary.get('l10n.waypoints'),
-        reversed: false
+        reversed: false,
       },
       {
         highlight: (subContentId, state) => {
@@ -28,8 +28,8 @@ export default class MixinSidebar {
         },
         remove: (subContentId) => {
           this.removeWaypointIfConfirmed(this.getWaypointById(subContentId));
-        }
-      }
+        },
+      },
     );
 
     this.sidebar = new Sidebar({ subComponents: [this.listElements] });

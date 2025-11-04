@@ -15,7 +15,7 @@ export default class Globals {
    */
   get(key) {
     if (typeof key !== 'string') {
-      return;
+      return undefined;
     }
 
     return this.keys[key];

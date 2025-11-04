@@ -11,7 +11,7 @@ export default class MixinWaypointArea {
         dictionary: this.params.dictionary,
         waypoints: this.params.waypoints,
         waypointFields: this.params.waypointFields,
-        zoomLevelDefault: this.params.zoomLevelDefault
+        zoomLevelDefault: this.params.zoomLevelDefault,
       },
       {
         onWaypointAdded: (waypoint) => {
@@ -20,7 +20,7 @@ export default class MixinWaypointArea {
           this.listElements.add({
             title: waypoint.getTitle(),
             details: waypoint.getDescription(),
-            id: waypoint.getId()
+            id: waypoint.getId(),
           });
         },
         showFormDialog: (waypoint, mode = 'add') => {
@@ -30,7 +30,7 @@ export default class MixinWaypointArea {
             onDone: () => {
               this.listElements.update(waypoint.getId(), {
                 title: waypoint.getTitle(),
-                details: waypoint.getDescription()
+                details: waypoint.getDescription(),
               });
 
               waypoint.updateMarkerAriaLabel();
@@ -44,7 +44,7 @@ export default class MixinWaypointArea {
               else {
                 this.removeWaypointIfConfirmed(waypoint);
               }
-            }
+            },
           };
 
           this.callbacks.showFormDialog(dialogConfig);
@@ -60,7 +60,7 @@ export default class MixinWaypointArea {
         onChanged: (values) => {
           values = values ?? { waypoints: this.waypointArea.getWaypointsParams() };
           this.callbacks.onChanged(values);
-        }
+        },
       });
   }
 
@@ -122,7 +122,7 @@ export default class MixinWaypointArea {
       confirmText: this.params.dictionary.get('l10n.confirmationDialogRemoveWaypointConfirm'),
       callbackConfirmed: () => {
         this.removeWaypoint(waypoint);
-      }
+      },
     });
   }
 

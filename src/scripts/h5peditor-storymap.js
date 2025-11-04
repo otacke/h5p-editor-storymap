@@ -45,7 +45,7 @@ export default class StoryMap extends H5P.EventDispatcher {
 
     // Instantiate original field (or create your own and call setValue)
     this.fieldInstance = new H5PEditor.widgets[this.field.type](
-      this.parent, this.field, this.params, this.setValue
+      this.parent, this.field, this.params, this.setValue,
     );
 
     // DOM
@@ -143,7 +143,7 @@ export default class StoryMap extends H5P.EventDispatcher {
     const waypointFields = H5P.cloneObject(waypointsGroup.fields, true);
 
     this.globals.set('waypointsGroupInstance', new H5PEditor.widgets[waypointsGroup.type](
-      this, waypointsGroup, this.params.waypoints, () => {} // No setValue needed
+      this, waypointsGroup, this.params.waypoints, () => {}, // No setValue needed
     ));
 
     this.main = new Main(
@@ -152,7 +152,7 @@ export default class StoryMap extends H5P.EventDispatcher {
         globals: this.globals,
         waypoints: this.params.waypoints,
         waypointFields: waypointFields,
-        zoomLevelDefault: this.params.zoomLevelDefault
+        zoomLevelDefault: this.params.zoomLevelDefault,
       },
       {
         onChanged: (values) => {
@@ -163,10 +163,10 @@ export default class StoryMap extends H5P.EventDispatcher {
             a11y: this.parent.commonFields[getUberName('H5P.StoryMap')].a11y.params,
             editor: { waypoints: this.params.waypoints, zoomLevelDefault: this.params.zoomLevelDefault },
             behaviour: this.parent.params.behaviour,
-            visual: this.parent.params.visual
+            visual: this.parent.params.visual,
           });
-        }
-      }
+        },
+      },
     );
     this.dom.append(this.main.getDOM());
   }

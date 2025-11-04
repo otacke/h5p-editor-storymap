@@ -12,11 +12,11 @@ export default class Waypoint {
     params.waypointParams = Util.extend({
       id: H5P.createUUID(),
       lat: 0,
-      lng: 0
+      lng: 0,
     }, params.waypointParams);
 
     this.callbacks = Util.extend({
-      onFocusBlur: () => {}
+      onFocusBlur: () => {},
     }, callbacks);
 
     this.params = Util.extend({}, params);
@@ -26,7 +26,7 @@ export default class Waypoint {
 
     this.formData = this.generateForm(
       this.params.waypointFields,
-      this.params.waypointParams
+      this.params.waypointParams,
     );
 
     this.params.marker.getElement().addEventListener('focus', () => {
@@ -51,14 +51,14 @@ export default class Waypoint {
       semantics,
       params,
       H5P.jQuery(form),
-      this.params.globals.get('waypointsGroupInstance')
+      this.params.globals.get('waypointsGroupInstance'),
     );
 
     const waypointsGroupInstance = this.params.globals.get('waypointsGroupInstance');
 
     return {
       form: form,
-      children: waypointsGroupInstance.children
+      children: waypointsGroupInstance.children,
     };
   }
 
@@ -146,7 +146,7 @@ export default class Waypoint {
       latitude: (this.params.marker.getLatLng().lat).toString(),
       longitude: (this.params.marker.getLatLng().lng).toString(),
       title: this.getTitle(),
-      contents: this.getValueForField('contents')
+      contents: this.getValueForField('contents'),
     };
   }
 

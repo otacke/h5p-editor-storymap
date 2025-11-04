@@ -20,7 +20,7 @@ export default class WaypointArea {
       onWaypointAdded: () => {},
       onMarkerRemoved: () => {},
       onWaypointFocusBlur: () => {},
-      onChanged: () => {}
+      onChanged: () => {},
     }, callbacks);
 
     this.dom = document.createElement('div');
@@ -35,7 +35,7 @@ export default class WaypointArea {
         dictionary: this.params.dictionary,
         waypoints: this.params.waypoints,
         waypointFields: this.params.waypointFields,
-        zoomLevelDefault: this.params.zoomLevelDefault
+        zoomLevelDefault: this.params.zoomLevelDefault,
       },
       {
         onWaypointAdded: (waypoint) => {
@@ -49,8 +49,8 @@ export default class WaypointArea {
         },
         onChanged: (values) => {
           this.callbacks.onChanged(values);
-        }
-      }
+        },
+      },
     );
 
     this.waypointArea = document.createElement('div');

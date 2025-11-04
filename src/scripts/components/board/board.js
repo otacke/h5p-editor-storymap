@@ -22,13 +22,13 @@ export default class Board {
     Util.addMixins(Board, [MixinWaypointArea, MixinSidebar, MixinToolbar]);
 
     this.params = Util.extend({
-      waypoints: []
+      waypoints: [],
     }, params);
 
     this.callbacks = Util.extend({
       onChanged: () => {},
       showFormDialog: () => {},
-      togglePreview: () => {}
+      togglePreview: () => {},
     }, callbacks);
 
     this.elements = [];

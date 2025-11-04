@@ -33,43 +33,43 @@ const MAP_SERVICES = {
     options: {
       // eslint-disable-next-line
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
-    }
+    },
   },
   esriNATGeoWorldMap: {
     urlTemplate: 'https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}',
     options: {
       // eslint-disable-next-line
       attribution: '&copy; Esri, USGS &mdash; Esri, TomTom, FAO, NOAA, USGS &mdash; National Geographic, Esri, Garmin, HERE, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, increment P Corp.',
-      maxZoom: 12
-    }
+      maxZoom: 12,
+    },
   },
   esriWorldPhysicalMap: {
     urlTemplate: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}',
     options: {
       attribution: '&copy; Esri, USGS &mdash; Esri, TomTom, FAO, NOAA, USGS &mdash; US National Park Service',
-      maxZoom: 8
-    }
+      maxZoom: 8,
+    },
   },
   esriWorldTopoMap: {
     urlTemplate: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
     options: {
       // eslint-disable-next-line
       attribution: '&copy; Esri, NLS, NMA, USGS &mdash; Source: Esri, TomTom, Garmin, METI/NASA, USGS | Esri, HERE, Garmin, USGS, METI/NASA, NGA'
-    }
+    },
   },
   openStreetMap: {
     urlTemplate: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
     options: {
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'
-    }
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>',
+    },
   },
   openTopoMap: {
     urlTemplate: 'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',
     options: {
       // eslint-disable-next-line
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>, SRTM | &copy; <a href="http://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">(CC BY-SA 3.0)</a>)',
-      maxZoom: 17
-    }
+      maxZoom: 17,
+    },
   },
 };
 
@@ -97,7 +97,7 @@ export default class GeoMap {
       onWaypointAdded: () => {},
       showFormDialog: () => {},
       onWaypointFocusBlur: () => {},
-      onChanged: () => {}
+      onChanged: () => {},
     }, callbacks);
 
     this.waypoints = [];
@@ -164,7 +164,7 @@ export default class GeoMap {
     const waypoint = this.addWaypoint({
       id: H5P.createUUID(),
       latitude: event.latlng.lat,
-      longitude: event.latlng.lng
+      longitude: event.latlng.lng,
     });
 
     if (!waypoint) {
@@ -201,15 +201,15 @@ export default class GeoMap {
           latitude: params.latitude,
           longitude: params.longitude,
           title: params.title,
-          contents: params.contents || []
+          contents: params.contents || [],
         },
-        waypointFields: this.params.waypointFields
+        waypointFields: this.params.waypointFields,
       },
       {
         onFocusBlur: (id, state) => {
           this.callbacks.onWaypointFocusBlur(id, state);
-        }
-      }
+        },
+      },
     );
 
     waypoint.updateMarkerAriaLabel();
@@ -416,7 +416,7 @@ export default class GeoMap {
     this.miniMap = new MiniMap(this.miniMapLayer, {
       height: '', // Allows to use CSS without restriction to px and without !important
       width: '', // Allows to use CSS without restriction to px and without !important
-      position: 'bottomleft'
+      position: 'bottomleft',
     });
 
     this.miniMap.addTo(this.map);

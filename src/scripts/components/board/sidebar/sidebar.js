@@ -6,7 +6,7 @@ export default class Sidebar {
 
   /**
    * @class
-   * @param {params} params Parameters.
+   * @param {object} params Parameters.
    */
   constructor(params = { subComponents: [] }) {
     this.params = Util.extend({}, params);
