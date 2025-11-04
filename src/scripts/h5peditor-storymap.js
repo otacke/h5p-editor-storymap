@@ -254,7 +254,10 @@ export default class StoryMap extends H5P.EventDispatcher {
    */
   ready(ready) {
     if (!this.passReadies) {
-      ready();
+      window.requestAnimationFrame(() => {
+        ready();
+      });
+
       return;
     }
 
