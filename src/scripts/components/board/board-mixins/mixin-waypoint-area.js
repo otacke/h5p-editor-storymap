@@ -33,6 +33,8 @@ export default class MixinWaypointArea {
                 details: waypoint.getDescription()
               });
 
+              waypoint.updateMarkerAriaLabel();
+
               this.callbacks.onChanged({ waypoints: this.waypointArea.getWaypointsParams() });
             },
             onRemoved: () => {

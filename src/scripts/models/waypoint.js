@@ -151,6 +151,20 @@ export default class Waypoint {
   }
 
   /**
+   * Update marker aria-label.
+   */
+  updateMarkerAriaLabel() {
+    const markerElement = this.params.marker.getElement();
+    if (!markerElement) {
+      return;
+    }
+
+    const ariaLabel = this.getTitle() || this.params.dictionary.get('l10n.unnamedWaypoint');
+    markerElement.setAttribute('aria-label', ariaLabel);
+  }
+
+
+  /**
    * Toggle focus on the marker.
    * @param {boolean} setFocus Whether to set focus or not.
    */
