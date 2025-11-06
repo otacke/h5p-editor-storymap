@@ -86,6 +86,7 @@ export default class WaypointArea {
    */
   changeWaypointOrder(sourceIndex, moveOffset) {
     this.geoMap.changeWaypointOrder(sourceIndex, moveOffset);
+    this.callbacks.onChanged({ waypoints: this.getWaypointsParams() });
   }
 
   /**
