@@ -1,6 +1,5 @@
 import Main from '@components/main.js';
 import Dictionary from '@services/dictionary.js';
-import Globals from '@services/globals.js';
 import { getUberName } from '@services/h5p-util.js';
 import Util, { signalMouseUsage } from '@services/util.js';
 import '@styles/h5peditor-storymap.scss';
@@ -28,7 +27,7 @@ export default class StoryMap extends H5P.EventDispatcher {
     this.dictionary = new Dictionary();
     this.fillDictionary();
 
-    this.globals = new Globals();
+    this.globals = new Map();
     this.globals.set('mainInstance', this);
     this.globals.set('showConfirmationDialog', (params) => {
       this.showConfirmationDialog(params);
