@@ -125,7 +125,28 @@ export default class Dialog {
         return false;
       }
 
-      return child.validate() ?? true; // Some widgets return `undefined` instead of true
+      // Unfortunately, H5P core widgets do not have a common interface. Custom detection is needed.
+      let childDOM;
+
+      // Some editor widgets require a call to validate() or may not update values
+      child.validate();
+
+      if (child instanceof H5PEditor.Group) {
+        childDOM = child.$group.get(0);
+      }
+      else {
+        childDOM = child.$item?.get(0);
+      }
+
+      if (!childDOM?.offsetParent) {
+        return true; // Hidden fields are not required, but values must be sanitzed in view
+      }
+
+      /*
+       * Always `true` here, because some content types like do not validate well
+       * (e.g. Interactive Video returning false if no values for "summaries" are set)
+       */
+      return true;
     });
   }
 
